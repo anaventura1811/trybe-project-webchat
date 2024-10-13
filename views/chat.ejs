@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/socket.io/socket.io.js"></script>
+  <link href="styles/styles.css" rel="stylesheet" />
+  <title>tryChat</title>
+</head>
+<body>
+  <main class="container">
+    <div class="subcontainer">
+      <section class="messages-list">
+        <% chat.forEach((item) => { %>
+          <% const { nickname, message, timestamp } = item; %>
+            <p data-testid="message"> <%=timestamp %> - <%= nickname %></span> : <%= message %> </p>
+      <%  }) %>
+        </section>
+        <ul class="usersList">
+        </ul>
+    </div>
+      <div class="forms-container">
+        <form action=" " class="nickname-box-container">
+          <input
+            data-testid="nickname-box"
+            type="text"
+            class="nicknameInput"
+            placeholder="Digite seu nickname"
+            autocomplete="off"
+          />
+          <button data-testid="nickname-button" class="nickname-btn">
+            Salvar nickname
+          </button>
+        </form>
+        <form action="" class="message-box-container">
+          <input
+            data-testid="message-box"
+            type="text"
+            name="message-box"
+            class="messageInput"
+            placeholder="Digite sua mensagem"
+            autocomplete="off"
+          />
+          <button type="button" class="send-button" data-testid="send-button">
+            Enviar
+          </button>
+        </form>
+
+      </div>
+
+  </main>
+    <script src="/js/chat.js"></script>
+</body>
+</html>
